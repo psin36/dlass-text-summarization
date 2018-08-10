@@ -1,0 +1,31 @@
+model_definition:
+  name: dlass-text-summarization-tensorflow
+  author:
+    name: #Name
+    email: #Email
+  description: text summarization model (dongjun-Lee) implemented in TF
+  framework:
+    name: tensorflow
+    version: "1.5"
+  execution: 
+    command: bash command-script.sh
+    compute_configuration:
+      name: k80 # other compute config options: p100, v100
+training_data_reference:
+  name: training_data_reference
+  connection:
+    endpoint_url: "" #endpoint from watson machine learning instance (wml)
+    access_key_id: "" #access key id from service credentials for wml
+    secret_access_key: "" #secret access key id from service credentials for wml
+  source:
+    bucket: #name of bucket with training data
+  type: s3
+training_results_reference:
+  name: training_results_reference
+  connection:
+    endpoint_url:  "" #endpoint from watson machine learning instance (wml)
+    access_key_id: "" #access key id from service credentials for wml
+    secret_access_key: "" #secret access key id from service credentials for wml
+  target:
+    bucket: #name of bucket to store results in
+  type: s3

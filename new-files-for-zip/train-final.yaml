@@ -1,0 +1,31 @@
+model_definition:
+  name: dlass-text-summarization-tensorflow-final
+  author:
+    name: Prachi Sinha
+    email: prachi.sinha@ibm.com
+  description: text summarization model (dongjun-Lee) implemented in TF
+  framework:
+    name: tensorflow
+    version: "1.5"
+  execution: 
+    command: bash command-script.sh
+    compute_configuration:
+      name: k80
+training_data_reference:
+  name: training_data_reference
+  connection:
+    endpoint_url: "https://s3.us-south.objectstorage.service.networklayer.com"
+    access_key_id: "d694870960cc41c199add1e89cba5826"
+    secret_access_key: "dc4dd2ef37eb29b96436bd3181d43e721fdc0cdedd170fb5"
+  source:
+    bucket: text-summarization-train-bookworm0
+  type: s3
+training_results_reference:
+  name: training_results_reference
+  connection:
+    endpoint_url: "https://s3.us-south.objectstorage.service.networklayer.com"
+    access_key_id: "d694870960cc41c199add1e89cba5826"
+    secret_access_key: "dc4dd2ef37eb29b96436bd3181d43e721fdc0cdedd170fb5"
+  target:
+    bucket: text-summarization-res-bookworm0
+  type: s3
