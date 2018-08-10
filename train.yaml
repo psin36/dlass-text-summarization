@@ -1,0 +1,31 @@
+model_definition:
+  name: text-summarization-final
+  author:
+    name: Prachi Sinha
+    email: prachi.sinha@ibm.com
+  description: text-summarization-tensorflow model (dongjun-Lee) implemented in TF
+  framework:
+    name: tensorflow
+    version: "1.5"
+  execution:
+    command: python3 time.py
+    compute_configuration:
+      name: k80x2
+training_data_reference:
+  name: training_data_reference
+  connection:
+    endpoint_url: "https://s3.us-south.objectstorage.service.networklayer.com"
+    access_key_id: "0ea66bbb4de0408e9970978d811dde2a"
+    secret_access_key: "c45b3d822d5c6a9dde9179e4d5ad8ab11777869a4a59b715"
+  source:
+    bucket: text-summarization-train-psin-6-29
+  type: s3
+training_results_reference:
+  name: training_results_reference
+  connection:
+    endpoint_url: "https://s3.us-south.objectstorage.service.networklayer.com"
+    access_key_id: "0ea66bbb4de0408e9970978d811dde2a"
+    secret_access_key: "c45b3d822d5c6a9dde9179e4d5ad8ab11777869a4a59b715"
+  target:
+    bucket: text-summarization-results-psin-6-29
+  type: s3
